@@ -77,3 +77,7 @@ footer {
 .note__items {
 
 }
+
+#note-button {
+    float: right;
+}
