@@ -1,4 +1,7 @@
 import React from 'react';
+import Trash from "react-feather/dist/icons/trash";
+import Edit from "react-feather/dist/icons/edit-2";
+
 
 const NoteItem = (props) => {
     return (
@@ -11,12 +14,12 @@ const NoteItem = (props) => {
             <button
                 id="note-button"
                 name='delete'>
-                delete
+                <Trash size={20}/>
             </button>
             <button
                 name='edit'
                 id="note-button">
-                edit
+                <Edit size={20}/>
             </button>
             <p>
                 <textarea placeholder="print your note" ></textarea>

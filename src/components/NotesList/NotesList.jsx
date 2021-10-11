@@ -2,7 +2,7 @@ import React from 'react';
 import NoteItem from "../NoteItem/NoteItem";
 
 const NotesList = (props) => {
-    const listItem = [0, 1, 2, 3, 4, 5];
+    const listItem = [0, 1, 2];
     const listItemCount = listItem.map((note) => <NoteItem/>)
 
     return (
