@@ -1,39 +1,48 @@
 import React, {Component} from "react";
 import './AddNote.css'
+import {updateTitleAC} from "../../redux/itemReducer";
 
 
-class AddNote extends Component {
-    constructor() {
-        super();
-        this.state = {
-            title: '',
-            text: '',
-        }
-    }
-
+const AddNote = (props) => {
 
     // handleTitleChange = (e) => {
     //     let title = e.target.value;
     //     this.setState({title})
     // }
-    //
+
     // handleNoteBodyChange = (e) => {
     //     let noteBody = e.target.value;
     //     this.setState({noteBody})
     // }
+    //
+    const handleTitleChange = (e) => {
+        let title = e.target.value;
+        return props.updateTitleNewNote(title);   //ЭТО ЗАТРАВКА ДЛЯ СТОРА РИДАКСА
+    }
 
-    onInputChange = (e) => {  // Catch onChange from input and textarea
+    const handleNoteBodyChange = (e) => {
+        let noteBody = e.target.value;
+        props.updateTextNewNote(noteBody);
+    }
+
+    const addNewNote = (e) => {
         e.preventDefault();
-        const {target: { name, value }} = e;
-        this.setState({[name]: value,});
-    };
+        props.addNewNote();
+    }
+
+
+    // onInputChange = (e) => {  // Catch onChange from input and textarea
+    //     e.preventDefault();
+    //     const {target: { name, value }} = e;
+    //     this.setState({[name]: value,});
+    // };
 
     // addNote = () => {
     //     props.addNote(text, title)
     // }
 
-    render() {
-        return (
+
+    return (
         <form className="note-form">
             <div className="inputs-holder">
                 <div className="form-group">
@@ -42,7 +51,8 @@ class AddNote extends Component {
                         id="title"
                         name="title"
                         placeholder="The post title"
-                        onChange={this.onInputChange}
+                        onChange={handleTitleChange}
+                        value={props.updateFormFields.title}
                     />
                 </div>
                 <textarea
@@ -51,7 +61,8 @@ class AddNote extends Component {
                     rows="3"
                     placeholder="Create a note"
                     name="text"
-                    onChange={this.onInputChange}
+                    onChange={handleNoteBodyChange}
+                    value={props.updateFormFields.text}
                 />
             </div>
             <div>
@@ -62,15 +73,19 @@ class AddNote extends Component {
                         type="button">
                         Prev
                     </button>
-                    <button className="submit-button" id="stepper" type="submit">
+                    <button
+                        className="submit-button"
+                        id="stepper"
+                        type="submit"
+                        onClick={addNewNote}>
                         <span>Submit</span>
                     </button>
                 </div>
             </div>
         </form>
-        )
-    }
+    )
+
 }
 
 
-export default AddNote
+export default AddNote;

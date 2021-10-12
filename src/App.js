@@ -1,21 +1,18 @@
 import './App.css';
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import NotesList from "./components/NotesList/NotesList";
 import React from "react";
-import AddNote from "./components/AddNote/AddNote";
-import AddNoteWithHook from "./components/AddNote/AddNoteWithHook";
-import {addNote} from "./redux/itemReducer"
+import AddNoteContainer from "./components/AddNote/AddNoteContainer";
+import NotesListContainer from "./components/NoteItem/NoteListContainer";
 
-addNote('darov', 'durachok')
 
-function App() {
+function App(props) {
     return (
         <div className="app-wrapper">
             <Header/>
             <div className="app-wrapper-content">
-                <AddNote />
-                <NotesList/>
+                <AddNoteContainer  store={props.store}/>
+                <NotesListContainer/>
             </div>
             <Footer/>
         </div>

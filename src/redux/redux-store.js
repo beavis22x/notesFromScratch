@@ -3,10 +3,11 @@ import itemReducer from "./itemReducer";
 
 const reducers = combineReducers({
     itemReducer,
-
 });
 
 
-const store = createStore(reducers);
+let store = createStore(reducers);
+
+window.store = store;
 
 export default store
