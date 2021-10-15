@@ -78,6 +78,10 @@ footer {
 
 }
 
-#note-button {
+.NoteItemBtn {
     float: right;
+}
+
+.inactiveNoteText {
+    Font-family: «Lato», Georgia, Arial, sans-serif;
 }

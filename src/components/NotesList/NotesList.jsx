@@ -2,18 +2,6 @@ import React from 'react';
 import NoteItem from "../NoteItem/NoteItem";
 
 
-// let length = props.notes.length;
-//
-// const titleArr = props.notes.map(n => {
-//     let arr = [];
-//
-//     for (let i = 0; i < length; i++) {
-//         let titleNote = n.title;
-//         arr.push(titleNote)
-//     }
-//     return console.log(arr);
-// });
-
 
 const NotesList = (props) => {
 
@@ -23,6 +11,11 @@ const NotesList = (props) => {
                          title={n.title}
                          text={n.text}
                          id={n.id}
+                         editMode={n.editMode}
+                         editModeOn={props.editModeOn}
+                         editModeOff={props.editModeOff}
+                         updateEditNoteTitle={props.updateEditNoteTitle}
+                         updateEditNoteText={props.updateEditNoteText}
                          onDeleteNote={() => props.deleteNote(n.id)}/>
     });
 

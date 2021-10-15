@@ -68,12 +68,6 @@ const AddNote = (props) => {
             <div>
                 <div>
                     <button
-                        className="prev-button"
-                        id="prev"
-                        type="button">
-                        Prev
-                    </button>
-                    <button
                         className="submit-button"
                         id="stepper"
                         type="submit"

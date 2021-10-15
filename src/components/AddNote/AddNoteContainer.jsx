@@ -1,24 +1,22 @@
-import React, {Component} from "react";
+import React from "react";
 import AddNote from "./AddNote";
 import {connect} from "react-redux";
-import {addNewNoteAC, updateTextAC, updateTitleAC} from "../../redux/itemReducer";
+import  {addNewNoteAC, updateNewTextAC, updateNewTitleAC} from "../../redux/itemReducer";
 
 
 let mapStateToProps = (state) => {
     return {
-        notes: state.itemReducer.notes, // В стэйт какого-то хера приходит itemReducer
         updateFormFields: state.itemReducer.updateFormFields
-
     }
 }
 
 let mapDispatchToProps = (dispatch) => {
     return {
         updateTitleNewNote: (title) => {
-            dispatch(updateTitleAC(title))
+            dispatch(updateNewTitleAC(title))
         },
         updateTextNewNote: (noteBody) => {
-            dispatch(updateTextAC(noteBody));
+            dispatch(updateNewTextAC(noteBody));
         },
         addNewNote: () => {
             dispatch(addNewNoteAC());
