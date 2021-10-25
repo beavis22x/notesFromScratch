@@ -3,8 +3,6 @@ import {connect} from "react-redux";
 import NotesList from "../NotesList/NotesList";
 import {
     deleteNoteAC,
-    editModeOffAC,
-    editModeOnAC,
     updateEditNoteTextAC,
     updateEditNoteTitleAC
 } from "../../redux/itemReducer";
@@ -34,12 +32,6 @@ let mapDispatchToProps = (dispatch) => {
     return {
         deleteNote: (noteId) => {
             dispatch(deleteNoteAC(noteId))
-        },
-        editModeOn: (noteId) => {
-            dispatch(editModeOnAC(noteId))
-        },
-        editModeOff: (noteId) => {
-            dispatch(editModeOffAC(noteId))
         },
         updateEditNoteTitle: (noteId, title) => {
             dispatch(updateEditNoteTitleAC(noteId, title))

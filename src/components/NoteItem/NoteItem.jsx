@@ -1,18 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Trash from "react-feather/dist/icons/trash";
 import Edit from "react-feather/dist/icons/edit-2";
 
 
 const NoteItem = (props) => {
-    const {editMode} = props;
-    
-    const onToggleEditMode = (e) => {
-        const id = Number(e.currentTarget.id);
-        if (editMode) {
-            props.editModeOff(id);
-        } else {
-            props.editModeOn(id);
-        }
+
+    const [editMode,setEditMode] = useState(false);
+
+    const onToggleEditMode = () => {
+        setEditMode(!editMode)
     }
 
     const titleUpdate = (e) => {
@@ -26,7 +22,6 @@ const NoteItem = (props) => {
             id = Number(e.currentTarget.id);
         props.updateEditNoteText(id, text);
     }
-
 
 
     return (

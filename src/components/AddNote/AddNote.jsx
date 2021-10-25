@@ -27,7 +27,9 @@ const AddNote = (props) => {
 
     const addNewNote = (e) => {
         e.preventDefault();
-        props.addNewNote();
+        if (props.updateFormFields.text || props.updateFormFields.title) {
+            props.addNewNote()
+            }
     }
 
 
@@ -78,7 +80,6 @@ const AddNote = (props) => {
             </div>
         </form>
     )
-
 }
 
 

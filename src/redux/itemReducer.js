@@ -2,21 +2,19 @@ const UPDATE_NEW_NOTE_TEXT = 'UPDATE_NEW_NOTE_TEXT';
 const UPDATE_NEW_NOTE_TITLE = 'UPDATE_NEW_NOTE_TITLE';
 const ADD_NEW_NOTE = 'ADD_NEW_NOTE';
 const DELETE_NOTE = 'DELETE_NOTE';
-const EDIT_NOTE_ON = 'EDIT_NOTE_ON';
-const EDIT_NOTE_OFF = 'EDIT_NOTE_OFF';
 const UPDATE_EDIT_ON_NOTE_TEXT = 'UPDATE_EDIT_ON_NOTE_TEXT';
 const UPDATE_EDIT_ON_NOTE_TITLE = 'UPDATE_EDIT_ON_NOTE_TITLE';
 
 
 let initialState = {
     notes: [
-        {id: 1, title: 'asd', text: 'dsa', editMode: false},
-        {id: 2, title: 'dada', text: 'as', editMode: false},
-        {id: 3, title: 'nene', text: 'ass', editMode: false},
+        {id: 1, title: 'asd', text: 'dsa'},
+        {id: 2, title: 'dada', text: 'as'},
+        {id: 3, title: 'nene', text: 'ass'},
     ],
     updateFormFields: {
-        text: 'Hi',
-        title: 'Note name',
+        text: '',
+        title: '',
     },
 };
 
@@ -31,7 +29,10 @@ const itemReducer = (state = initialState, action) => {
             }
             return {
                 ...state,
-                notes: [...state.notes, newNote]
+                notes: [...state.notes, newNote],
+                updateFormFields: {...state.updateFormFields,
+                    text: '',
+                    title: ''}
             };
         }
         case DELETE_NOTE: {
@@ -51,28 +52,6 @@ const itemReducer = (state = initialState, action) => {
             return {
                 ...state,
                 updateFormFields: {...state.updateFormFields, text: action.text}
-            };
-        }
-        case EDIT_NOTE_ON: {
-            return {
-                ...state,
-                notes: state.notes.map ((n) => {  // Проходим по массиву объектов если айди объекта
-                    if (n.id === action.noteId) {     // и айди из экшена совпадают делаем его копию и переключаем
-                        return {...n, editMode: true} // едитмод, иначе возвращаем старый объект
-                    }
-                    return n;
-                }),
-            };
-        }
-        case EDIT_NOTE_OFF: {
-            return {
-                ...state,
-                notes: state.notes.map ((n) => {
-                    if (n.id === action.noteId) {
-                        return {...n, editMode: false}
-                    }
-                    return n;
-                }),
             };
         }
         case UPDATE_EDIT_ON_NOTE_TITLE: {
@@ -109,8 +88,6 @@ export const updateNewTextAC = (noteBody) => ({type: UPDATE_NEW_NOTE_TEXT, text:
 export const updateNewTitleAC = (title) => ({type: UPDATE_NEW_NOTE_TITLE, title: title})
 export const addNewNoteAC = () => ({type: ADD_NEW_NOTE})
 export const deleteNoteAC = (noteId) => ({type: DELETE_NOTE, noteId})
-export const editModeOnAC = (noteId) => ({type: EDIT_NOTE_ON, noteId})
-export const editModeOffAC = (noteId) => ({type: EDIT_NOTE_OFF, noteId})
 export const updateEditNoteTitleAC = (noteId, title) => ({type: UPDATE_EDIT_ON_NOTE_TITLE, noteId, title})
 export const updateEditNoteTextAC = (noteId, text) => ({type: UPDATE_EDIT_ON_NOTE_TEXT, noteId, text})
 
