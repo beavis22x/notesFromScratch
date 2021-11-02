@@ -4,13 +4,12 @@ const ADD_NEW_NOTE = 'ADD_NEW_NOTE';
 const DELETE_NOTE = 'DELETE_NOTE';
 const UPDATE_EDIT_ON_NOTE_TEXT = 'UPDATE_EDIT_ON_NOTE_TEXT';
 const UPDATE_EDIT_ON_NOTE_TITLE = 'UPDATE_EDIT_ON_NOTE_TITLE';
+const SET_NOTES = 'SET_NOTES';
 
 
 let initialState = {
     notes: [
-        {id: 1, title: 'asd', text: 'dsa'},
-        {id: 2, title: 'dada', text: 'as'},
-        {id: 3, title: 'nene', text: 'ass'},
+        {id: 62397127, title: 'asd', text: 'dsa'},
     ],
     updateFormFields: {
         text: '',
@@ -22,8 +21,9 @@ const itemReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_NEW_NOTE: {
+            let id = 1234563
             let newNote = {
-                id: state.notes.length + 1,
+                id: ++id ,
                 title: state.updateFormFields.title,
                 text: state.updateFormFields.text
             }
@@ -77,11 +77,21 @@ const itemReducer = (state = initialState, action) => {
                 }),
             };
         }
+        case SET_NOTES: {
+            let newNote = {
+                id: Number(action.id),
+                title: action.title,
+                text: action.text
+            }
+            return {
+                ...state,
+                notes: [...state.notes, newNote],
+            };
+        }
         default:
             return state;
     }
 }
-
 
 
 export const updateNewTextAC = (noteBody) => ({type: UPDATE_NEW_NOTE_TEXT, text: noteBody})   // ACTIONCREATORS
@@ -90,6 +100,7 @@ export const addNewNoteAC = () => ({type: ADD_NEW_NOTE})
 export const deleteNoteAC = (noteId) => ({type: DELETE_NOTE, noteId})
 export const updateEditNoteTitleAC = (noteId, title) => ({type: UPDATE_EDIT_ON_NOTE_TITLE, noteId, title})
 export const updateEditNoteTextAC = (noteId, text) => ({type: UPDATE_EDIT_ON_NOTE_TEXT, noteId, text})
+export const setNotesAC = (title, text, id) => ({type: SET_NOTES, title, text, id})
 
 
 export default itemReducer;

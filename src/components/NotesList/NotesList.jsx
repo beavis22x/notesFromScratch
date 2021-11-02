@@ -11,6 +11,8 @@ const NotesList = (props) => {
                          title={n.title}
                          text={n.text}
                          id={n.id}
+                         notes={props.notes}
+                         setNotes={props.setNotes}
                          updateEditNoteTitle={props.updateEditNoteTitle}
                          updateEditNoteText={props.updateEditNoteText}
                          onDeleteNote={() => props.deleteNote(n.id)}/>

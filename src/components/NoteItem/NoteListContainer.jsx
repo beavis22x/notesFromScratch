@@ -2,23 +2,10 @@ import React from 'react';
 import {connect} from "react-redux";
 import NotesList from "../NotesList/NotesList";
 import {
-    deleteNoteAC,
+    deleteNoteAC, setNotesAC,
     updateEditNoteTextAC,
     updateEditNoteTitleAC
 } from "../../redux/itemReducer";
-
-// const NotesList = (props) => {
-//     const listItem = [0, 1, 2];
-//     const listItemCount = listItem.map((note) => <NoteItem/>)
-//
-//     return (
-//         <main className="main">
-//             <section className="note__items">
-//                 {listItemCount}
-//             </section>
-//         </main>
-//     )
-// }
 
 
 let mapStateToProps = (state) => {
@@ -38,6 +25,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         updateEditNoteText: (noteId, text) => {
             dispatch(updateEditNoteTextAC(noteId, text))
+        },
+        setNotes: (title, text, id) => {
+            dispatch(setNotesAC(title, text, id))
         }
     }
 }

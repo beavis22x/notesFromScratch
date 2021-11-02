@@ -1,11 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Trash from "react-feather/dist/icons/trash";
 import Edit from "react-feather/dist/icons/edit-2";
+import axios from "axios";
 
 
 const NoteItem = (props) => {
 
-    const [editMode,setEditMode] = useState(false);
+    const [editMode, setEditMode] = useState(false);
 
     const onToggleEditMode = () => {
         setEditMode(!editMode)
@@ -23,9 +24,15 @@ const NoteItem = (props) => {
         props.updateEditNoteText(id, text);
     }
 
+    useEffect( () => {  // Если меньше 3 в массиве notes запускает сарзу 2 запроса
+        if (props.notes.length < 3)
+             axios.get('https://www.boredapi.com/api/activity/')
+                .then(response => props.setNotes(response.data.type, response.data.activity, response.data.key)); // ));
+    }, [props.notes.length]);
+
 
     return (
-        <div className="props.color.note__item color3" id={props.id}>
+        <div className="note__item color1" id={props.id}>
             <div>
                 <button
                     className='NoteItemBtn'
@@ -61,16 +68,15 @@ const NoteItem = (props) => {
 
                     </div>)
                 : (
-                    <div className="color2" id={props.id}>
-                        <span className="inactiveNoteTitle color2">{props.title}</span>
+                    <div className="color3" id={props.id}>
+                        <span className="inactiveNoteTitle color3">{props.title}</span>
                         <div>
-                            <p className="inactiveNoteText color1">{props.text}</p>
+                            <p className="inactiveNoteText color4">{props.text}</p>
                         </div>
                     </div>
                 )}
         </div>
     )
-
 }
 
 export default NoteItem

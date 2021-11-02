@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import './AddNote.css'
 import {updateTitleAC} from "../../redux/itemReducer";
+import * as axios from "axios";
 
 
 const AddNote = (props) => {
@@ -27,9 +28,23 @@ const AddNote = (props) => {
 
     const addNewNote = (e) => {
         e.preventDefault();
-        if (props.updateFormFields.text || props.updateFormFields.title) {
+        if (props.updateFormFields.text || props.updateFormFields.title) { // если в одном из полей ввода что-то написано то добавляем в стор
+            let id = 101;
+            ++id;
             props.addNewNote()
+            axios.post(`https://jsonplaceholder.typicode.com/posts/`, {
+                "id": id,
+                "title": props.updateFormFields.title,
+                "body":props.updateFormFields.text
+            })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
             }
+
     }
 
 

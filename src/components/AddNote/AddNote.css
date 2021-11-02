@@ -7,31 +7,33 @@ form button {
     text-transform: uppercase;
     cursor: pointer;
 }
-form button:focus {
-    outline: none;
-    transform: scale(1.1);
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
-}
 
 #title, #note-text {
-    outline: none;
-    box-shadow: none;
-}
 
-#title, #note-text {
     border: none;
     border-bottom: 2px solid rgba(0,0,0,0.7);
     border-radius: 0;
     padding: 14px 10px;
+    background: rgb(194, 241, 109);
+    width: 80%;
+    outline: none;
+    box-shadow: none;
 }
+
+#note-text {
+
+
+}
+
 
 .note-form {
     width: 50%;
     margin: 3% auto;
-    background: white;
+    background: rgb(194, 241, 109);
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.3);
     border-radius: 20px;
     padding: 20px 16px 35px;
+    text-align: center;
 }
 
 #title {
