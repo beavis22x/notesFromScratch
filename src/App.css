@@ -1,26 +1,34 @@
 .app-wrapper {
     /*хз как растянуть вертикально по-пацански*/
     /*min-height: 710px;*/
-    min-height: 100%;
+    /*min-height: 100%;*/
     display: grid;
     grid-template: minmax(100px, auto) 1fr minmax(70px, auto) / 1fr;
     grid-template-areas:
                 "header"
                 "main"
                 "footer";
-    background-color: rgb(152, 222, 26);
+    background-color: #eae7dc;
     /*border: 4px dashed #0b29e1;*/
     padding: 10px;
+    margin:  auto;
+    overflow-x: hidden;
 }
 
 header {
     grid-area: header;
     padding: 15px;
-    border: 3px dashed #303337;
+    /*border: 3px dashed #303337;*/
     display: grid;
-    background-color: rgb(152, 222, 26);
+    background-color: #8e8d8a;
     grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+}
 
+header,footer {
+    margin-right: -3000px;
+    padding-right: 3000px;
+    margin-left: -3000px;
+    padding-left:3000px;
 }
 
 .header img {
@@ -46,13 +54,13 @@ header {
 }
 
 main {
-    background-color: rgb(152, 222, 26);
+    background-color: #eae7dc;
     grid-column: 3 / 4;
     grid-area: main;
-    border: 3px dashed #e6482d;
+    /*border: 3px dashed #e6482d;*/
 }
 
-.note__items {
+.note-items {
     display: grid;
     grid-template: minmax(200px, 300px) minmax(200px, 300px) / repeat(auto-fit,minmax(350px, 1fr));
     grid-column-gap: 10px;
@@ -60,37 +68,40 @@ main {
     padding: 10px;
 }
 
-.note__item {
+.note-item {
     border-radius: 20px;
     padding: 20px;
 }
 
-.color1 {background-color: rgb(91, 141, 0);}
-.color2 {background-color: rgb(118, 179, 8);}
-.color3 {background-color: rgb(174, 233, 69);}
-.color4 {background-color: rgb(194, 241, 109);}
+.color1 {background-color: #d8c3a5;}/*#555c6c*/
+.color2 {background-color: rgb(118, 179, 8);}/*#86786f*/
+.color3 {background-color: #8e8d8a;}/*#d5cfbf*/
+.color4 {background-color: #e85a4f;}/*#559b77*/
 
 footer {
-    background-color: rgb(152, 222, 26);
     grid-area: footer;
-    border: 3px dashed #3dd20c;
     text-align: center;
-    
+    background-color: #8e8d8a;
 }
 
-.note__items {
-
-}
-
-.NoteItemBtn {
+.note-item-btn {
     float: right;
 }
 
-.inactiveNoteText {
+.inactive-note-title {
+    word-wrap: break-word;
+    margin-top: 0;
+    text-align: left;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: black;
+    letter-spacing: -0.4px;
+}
+
+.inactive-note-text {
+    font-size: 1em;
+    word-wrap: break-word;
     Font-family: «Lato», Georgia, Arial, sans-serif;
 }
 
-inactiveNoteTitle {
-    ;
-    text-align: center;
-}

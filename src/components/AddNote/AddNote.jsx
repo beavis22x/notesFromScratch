@@ -6,6 +6,8 @@ import * as axios from "axios";
 
 const AddNote = (props) => {
 
+    let idApi = 101;
+
     // handleTitleChange = (e) => {
     //     let title = e.target.value;
     //     this.setState({title})
@@ -26,14 +28,13 @@ const AddNote = (props) => {
         props.updateTextNewNote(noteBody);
     }
 
+
     const addNewNote = (e) => {
         e.preventDefault();
         if (props.updateFormFields.text || props.updateFormFields.title) { // если в одном из полей ввода что-то написано то добавляем в стор
-            let id = 101;
-            ++id;
             props.addNewNote()
             axios.post(`https://jsonplaceholder.typicode.com/posts/`, {
-                "id": id,
+                "id": idApi,
                 "title": props.updateFormFields.title,
                 "body":props.updateFormFields.text
             })
@@ -44,7 +45,7 @@ const AddNote = (props) => {
                     console.log(error);
                 });
             }
-
+        ++idApi;
     }
 
 

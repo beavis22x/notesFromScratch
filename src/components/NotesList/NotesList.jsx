@@ -20,7 +20,7 @@ const NotesList = (props) => {
 
     return (
         <main className="main">
-            <section className="note__items">
+            <section className="note-items">
                 {listItemCount}
             </section>
         </main>

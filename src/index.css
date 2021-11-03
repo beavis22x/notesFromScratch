@@ -1,10 +1,10 @@
-html, body, #root, .App {
+html, body, #root {
   /*.App можно убрать ничего не меняло, если убрать любую другая верт раст падало*/
   height: 100vh;
 }
 
 body {
-  margin: 0;
+  margin: auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

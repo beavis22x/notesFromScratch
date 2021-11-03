@@ -14,7 +14,7 @@ form button {
     border-bottom: 2px solid rgba(0,0,0,0.7);
     border-radius: 0;
     padding: 14px 10px;
-    background: rgb(194, 241, 109);
+    background: #d8c3a5;;
     width: 80%;
     outline: none;
     box-shadow: none;
@@ -29,7 +29,7 @@ form button {
 .note-form {
     width: 50%;
     margin: 3% auto;
-    background: rgb(194, 241, 109);
+    background: #d8c3a5;;
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.3);
     border-radius: 20px;
     padding: 20px 16px 35px;

@@ -6,6 +6,7 @@ const UPDATE_EDIT_ON_NOTE_TEXT = 'UPDATE_EDIT_ON_NOTE_TEXT';
 const UPDATE_EDIT_ON_NOTE_TITLE = 'UPDATE_EDIT_ON_NOTE_TITLE';
 const SET_NOTES = 'SET_NOTES';
 
+let id = 1234563;
 
 let initialState = {
     notes: [
@@ -19,14 +20,16 @@ let initialState = {
 
 const itemReducer = (state = initialState, action) => {
 
+
     switch (action.type) {
         case ADD_NEW_NOTE: {
-            let id = 1234563
+            // как менять id у новых заметок
             let newNote = {
-                id: ++id ,
+                id: id ,
                 title: state.updateFormFields.title,
                 text: state.updateFormFields.text
             }
+            id++;
             return {
                 ...state,
                 notes: [...state.notes, newNote],
