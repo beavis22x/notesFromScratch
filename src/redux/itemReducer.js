@@ -61,8 +61,7 @@ const itemReducer = (state = initialState, action) => {
             return {
                 ...state,
                 notes: state.notes.map ((n) => {  // Проходим по массиву объектов если айди объекта
-                    if (n.id === action.noteId) {
-                        console.log('!')// и айди из экшена совпадают делаем его копию и меняем
+                    if (n.id === action.noteId) {// и айди из экшена совпадают делаем его копию и меняем
                         return {...n, title: action.title} // тайтл, иначе возвращаем старый объект
                     }
                     return n;

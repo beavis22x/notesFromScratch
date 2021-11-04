@@ -68,9 +68,10 @@ main {
     padding: 10px;
 }
 
-.note-item {
+.note-item-wrapper {
     border-radius: 20px;
-    padding: 20px;
+    padding: 17px;
+    max-height: 300px;
 }
 
 .color1 {background-color: #d8c3a5;}/*#555c6c*/
@@ -82,17 +83,34 @@ footer {
     grid-area: footer;
     text-align: center;
     background-color: #8e8d8a;
+    height: 5em;
+    line-height: 5em;
 }
+
+.footer-content {
+
+}
+
+.note-item {
+    border-radius: 20px;
+
+}
+
 
 .note-item-btn {
     float: right;
 }
 
 .inactive-note-title {
+    min-width: 250px;
+    max-height: 32px;
+    border-radius: 20px 20px 0 0;
+    overflow: auto;
     word-wrap: break-word;
     margin-top: 0;
+    padding: 10px 10px 0;
     text-align: left;
-    font-size: 1.5em;
+    font-size: 1em;
     font-weight: bold;
     text-transform: capitalize;
     color: black;
@@ -100,8 +118,29 @@ footer {
 }
 
 .inactive-note-text {
+    min-width: 250px;
+    min-height: 220px;
+    max-height: 200px;
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    overflow: auto;
+    border-radius: 0 0 20px 20px;
+    padding: .5rem;
     font-size: 1em;
-    word-wrap: break-word;
+    word-wrap: break-spaces;
     Font-family: «Lato», Georgia, Arial, sans-serif;
 }
 
+.form-group-edit input, textarea {
+    background-color: #eae7dc;
+    justify-content: center;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.form-group-edit textarea {
+    min-height: 200px;
+    /*height: 200px;*/
+    /*max-height: 200px;*/
+    resize: none;
+}

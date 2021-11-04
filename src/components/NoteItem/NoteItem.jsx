@@ -8,9 +8,12 @@ const NoteItem = (props) => {
 
     const [editMode, setEditMode] = useState(false);
 
-    const onToggleEditMode = () => {
-        setEditMode(!editMode)
-    }
+    const onToggleEditMode = (e) => {
+        setEditMode(!editMode);
+        if (editMode) {
+            e.currentTarget.onFocus();
+            }
+        }
 
     const titleUpdate = (e) => {
         let title = e.target.value,
@@ -24,6 +27,12 @@ const NoteItem = (props) => {
         props.updateEditNoteText(id, text);
     }
 
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            onToggleEditMode(event);
+        }
+    }
+
     useEffect(() => {  // Если меньше 3 в массиве notes запускает сарзу 2 запроса
         if (props.notes.length < 3)
             axios.get('https://www.boredapi.com/api/activity/')
@@ -32,7 +41,7 @@ const NoteItem = (props) => {
 
 
     return (
-        <div className="note-item color1" id={props.id}>
+        <div className="note-item-wrapper color1" id={props.id}>
             <div className='btn-holder'>
                 <button
                     className='note-item-btn'
@@ -53,25 +62,34 @@ const NoteItem = (props) => {
                 <div className='form-group-edit'>
                     <div>
                         <input
-                        type="text"
-                        placeholder="note title"
-                        id={props.id}
-                        onChange={titleUpdate}
-                        value={props.title}>
-                    </input>
+                            type="text"
+                            placeholder="note title"
+                            id={props.id}
+                            onChange={titleUpdate}
+                            onKeyPress={handleKeyPress}
+                            value={props.title}>
+                        </input>
                     </div>
-                    <textarea placeholder="print your note"
-                              value={props.text}
-                              id={props.id}
-                              onChange={textUpdate}>
+                    <textarea
+                        placeholder="print your note"
+                        value={props.text}
+                        id={props.id}
+                        onKeyPress={handleKeyPress}
+                        onChange={textUpdate}>
                             </textarea>
                 </div>
             ) : (
-                <div className="color3" id={props.id}>
-                    <h3 className="inactive-note-title color3">{props.title}</h3>
-                    <div className='inactive-note-text'>
-                        <p className="inactive-note-text color4">{props.text}</p>
-                    </div>
+                <div className="note-item color3" id={props.id}>
+                    <h3
+                        className="inactive-note-title color3"
+                        onClick={onToggleEditMode}>
+                        {props.title}
+                    </h3>
+                    <p
+                        className="inactive-note-text color4"
+                        onClick={onToggleEditMode}>
+                        {props.text}
+                    </p>
                 </div>
             )}
         </div>

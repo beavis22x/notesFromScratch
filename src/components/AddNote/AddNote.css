@@ -9,7 +9,6 @@ form button {
 }
 
 #title, #note-text {
-
     border: none;
     border-bottom: 2px solid rgba(0,0,0,0.7);
     border-radius: 0;
@@ -18,13 +17,17 @@ form button {
     width: 80%;
     outline: none;
     box-shadow: none;
+    color: #000;
+    text-align: center;
 }
 
 #note-text {
 
-
 }
 
+#title, #note-text:focus {
+
+}
 
 .note-form {
     width: 50%;
