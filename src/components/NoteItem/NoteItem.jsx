@@ -10,10 +10,15 @@ const NoteItem = (props) => {
 
     const onToggleEditMode = (e) => {
         setEditMode(!editMode);
-        if (editMode) {
-            e.currentTarget.onFocus();
-            }
+    }
+
+    const activateEditMode = (e) => {
+        setEditMode(true);
         }
+
+    const deactivateEditMode = (e) => {
+        setEditMode(false);
+    }
 
     const titleUpdate = (e) => {
         let title = e.target.value,
@@ -29,7 +34,7 @@ const NoteItem = (props) => {
 
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') {
-            onToggleEditMode(event);
+            deactivateEditMode(event);
         }
     }
 
@@ -64,10 +69,12 @@ const NoteItem = (props) => {
                         <input
                             type="text"
                             placeholder="note title"
+                            value={props.title}
                             id={props.id}
                             onChange={titleUpdate}
                             onKeyPress={handleKeyPress}
-                            value={props.title}>
+                            autoFocus={true}
+                            >
                         </input>
                     </div>
                     <textarea
@@ -75,19 +82,20 @@ const NoteItem = (props) => {
                         value={props.text}
                         id={props.id}
                         onKeyPress={handleKeyPress}
-                        onChange={textUpdate}>
-                            </textarea>
+                        onChange={textUpdate}
+                        onBlur={deactivateEditMode}>
+                    </textarea>
                 </div>
             ) : (
                 <div className="note-item color3" id={props.id}>
                     <h3
                         className="inactive-note-title color3"
-                        onClick={onToggleEditMode}>
+                        onClick={activateEditMode}>
                         {props.title}
                     </h3>
                     <p
                         className="inactive-note-text color4"
-                        onClick={onToggleEditMode}>
+                        onClick={activateEditMode}>
                         {props.text}
                     </p>
                 </div>

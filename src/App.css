@@ -9,16 +9,14 @@
                 "main"
                 "footer";
     background-color: #eae7dc;
-    /*border: 4px dashed #0b29e1;*/
-    padding: 10px;
-    margin:  auto;
+    padding: 0 10px;
+    margin:  0 auto;
     overflow-x: hidden;
 }
 
 header {
     grid-area: header;
     padding: 15px;
-    /*border: 3px dashed #303337;*/
     display: grid;
     background-color: #8e8d8a;
     grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
@@ -71,7 +69,7 @@ main {
 .note-item-wrapper {
     border-radius: 20px;
     padding: 17px;
-    max-height: 300px;
+    max-height: 295px;
 }
 
 .color1 {background-color: #d8c3a5;}/*#555c6c*/
@@ -99,22 +97,43 @@ footer {
 
 .note-item-btn {
     float: right;
+    cursor: pointer;
+    border-radius: 0.6em;
+    width: 10%;
+    padding: 3px 0 0 0;
+    background-image: -webkit-linear-gradient(45deg, #8e8d8a 50%, transparent 50%);
+    background-image: linear-gradient(45deg, #8e8d8a 50%, transparent 50%);
+    background-position: 100%;
+    background-size: 400%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
+}
+
+.note-item-btn:hover {
+    background-position: 0;
 }
 
 .inactive-note-title {
     min-width: 250px;
-    max-height: 32px;
+    height: 44px;
     border-radius: 20px 20px 0 0;
-    overflow: auto;
+    overflow: hidden;
     word-wrap: break-word;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     margin-top: 0;
-    padding: 10px 10px 0;
+    padding: 10px;
     text-align: left;
     font-size: 1em;
     font-weight: bold;
-    text-transform: capitalize;
     color: black;
-    letter-spacing: -0.4px;
+    text-transform: capitalize;
+}
+
+.inactive-note-title:hover {
+    overflow: visible;
+    white-space: normal;
+    height:auto;
 }
 
 .inactive-note-text {
@@ -125,10 +144,9 @@ footer {
     /*justify-content: center;*/
     overflow: auto;
     border-radius: 0 0 20px 20px;
-    padding: .5rem;
+    padding: .5rem .5rem .5rem .5rem;
     font-size: 1em;
     word-wrap: break-spaces;
-    Font-family: «Lato», Georgia, Arial, sans-serif;
 }
 
 .form-group-edit input, textarea {

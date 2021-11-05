@@ -19,10 +19,11 @@ form button {
     box-shadow: none;
     color: #000;
     text-align: center;
+
 }
 
-#note-text {
-
+#title {
+    font-weight: bold;
 }
 
 #title, #note-text:focus {
@@ -48,8 +49,3 @@ form button {
     color: white;
 }
 
-.prev-button {
-    border: 1px solid indianred;
-    color: indianred;
-    margin-right: 10px;
-}
