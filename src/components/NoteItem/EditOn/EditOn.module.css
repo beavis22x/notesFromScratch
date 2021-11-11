@@ -1,0 +1,13 @@
+.form__group__edit input, textarea {
+    background-color: #eae7dc;
+    justify-content: center;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.form__group__edit textarea {
+    min-height: 200px;
+    /*height: 200px;*/
+    /*max-height: 200px;*/
+    resize: none;
+}

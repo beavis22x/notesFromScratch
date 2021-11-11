@@ -1,0 +1,18 @@
+.nav__header {
+    display: grid;
+    grid-template: 1fr  / repeat(3, 1fr);
+    justify-items: end;
+    line-height: 3.5em;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px;
+}
+
+.header__link a{
+    color:white;
+    text-decoration: none;
+}
+
+.header__link a.active{
+    color: #e85a4f;
+}

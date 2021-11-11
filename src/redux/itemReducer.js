@@ -20,7 +20,6 @@ let initialState = {
 
 const itemReducer = (state = initialState, action) => {
 
-
     switch (action.type) {
         case ADD_NEW_NOTE: {
             // как менять id у новых заметок
@@ -95,7 +94,6 @@ const itemReducer = (state = initialState, action) => {
     }
 }
 
-
 export const updateNewTextAC = (noteBody) => ({type: UPDATE_NEW_NOTE_TEXT, text: noteBody})   // ACTIONCREATORS
 export const updateNewTitleAC = (title) => ({type: UPDATE_NEW_NOTE_TITLE, title: title})
 export const addNewNoteAC = () => ({type: ADD_NEW_NOTE})
@@ -103,6 +101,5 @@ export const deleteNoteAC = (noteId) => ({type: DELETE_NOTE, noteId})
 export const updateEditNoteTitleAC = (noteId, title) => ({type: UPDATE_EDIT_ON_NOTE_TITLE, noteId, title})
 export const updateEditNoteTextAC = (noteId, text) => ({type: UPDATE_EDIT_ON_NOTE_TEXT, noteId, text})
 export const setNotesAC = (title, text, id) => ({type: SET_NOTES, title, text, id})
-
 
 export default itemReducer;

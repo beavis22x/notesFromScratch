@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import './AddNote.css'
+import './AddNote.module.css'
 
 
 const AddNoteWithHook = (props) => {

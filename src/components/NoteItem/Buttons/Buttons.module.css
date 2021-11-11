@@ -1,0 +1,21 @@
+.btn__item {
+    float: right;
+    cursor: pointer;
+    border-radius: 0.6em;
+    width: 10%;
+    padding: 3px 0 0 0;
+    background-image: -webkit-linear-gradient(45deg, #8e8d8a 50%, transparent 50%);
+    background-image: linear-gradient(45deg, #8e8d8a 50%, transparent 50%);
+    background-position: 100%;
+    background-size: 400%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
+}
+
+.btn__item:hover {
+    background-position: 0;
+}
+
+.btn__holder {
+
+}

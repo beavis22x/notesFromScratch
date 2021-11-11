@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import Trash from "react-feather/dist/icons/trash";
-import Edit from "react-feather/dist/icons/edit-2";
 import * as axios from "axios";
-
+import s from './NoteItem.module.css';
+import EditOn from "./EditOn/EditOn";
+import EditOff from "./EditOff/EditOff";
 
 const NoteItem = (props) => {
 
@@ -10,14 +10,6 @@ const NoteItem = (props) => {
 
     const onToggleEditMode = (e) => {
         setEditMode(!editMode);
-    }
-
-    const activateEditMode = (e) => {
-        setEditMode(true);
-        }
-
-    const deactivateEditMode = (e) => {
-        setEditMode(false);
     }
 
     const titleUpdate = (e) => {
@@ -34,72 +26,33 @@ const NoteItem = (props) => {
 
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') {
-            deactivateEditMode(event);
+            onToggleEditMode(event);
         }
     }
 
     useEffect(() => {  // Если меньше 3 в массиве notes запускает сарзу 2 запроса
         if (props.notes.length < 3)
             axios.get('https://www.boredapi.com/api/activity/')
-                .then(response => props.setNotes(response.data.type, response.data.activity, response.data.key)); // ));
+                .then(response => props.setNotes(response.data.type, response.data.activity, response.data.key));
     }, [props.notes.length]);
 
-
     return (
-        <div className="note-item-wrapper color1" id={props.id}>
-            <div className='btn-holder'>
-                <button
-                    className='note-item-btn'
-                    id={props.id}
-                    name='delete'
-                    onClick={props.onDeleteNote}>
-                    <Trash size={20}/>
-                </button>
-                <button
-                    className='note-item-btn'
-                    name='edit'
-                    id={props.id}
-                    onClick={onToggleEditMode}>
-                    <Edit size={20}/>
-                </button>
-            </div>
-            {editMode ? (
-                <div className='form-group-edit'>
-                    <div>
-                        <input
-                            type="text"
-                            placeholder="note title"
-                            value={props.title}
-                            id={props.id}
-                            onChange={titleUpdate}
-                            onKeyPress={handleKeyPress}
-                            autoFocus={true}
-                            >
-                        </input>
-                    </div>
-                    <textarea
-                        placeholder="print your note"
-                        value={props.text}
-                        id={props.id}
-                        onKeyPress={handleKeyPress}
-                        onChange={textUpdate}
-                        onBlur={deactivateEditMode}>
-                    </textarea>
-                </div>
-            ) : (
-                <div className="note-item color3" id={props.id}>
-                    <h3
-                        className="inactive-note-title color3"
-                        onClick={activateEditMode}>
-                        {props.title}
-                    </h3>
-                    <p
-                        className="inactive-note-text color4"
-                        onClick={activateEditMode}>
-                        {props.text}
-                    </p>
-                </div>
-            )}
+        <div className={`${s.note__item__wrapper} ${s.color1}`} id={props.id}>
+            {editMode ? <EditOn id={props.id}
+                                title={props.title}
+                                text={props.text}
+                                titleUpdate={titleUpdate}
+                                handleKeyPress={handleKeyPress}
+                                textUpdate={textUpdate}
+                                onToggleEditMode={onToggleEditMode}
+                                onDeleteNote={props.onDeleteNote}/>
+                :
+                <EditOff id={props.id}
+                         title={props.title}
+                         text={props.text}
+                         onToggleEditMode={onToggleEditMode}
+                         onDeleteNote={props.onDeleteNote}/>
+            }
         </div>
     )
 }

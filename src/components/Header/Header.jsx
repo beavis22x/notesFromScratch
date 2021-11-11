@@ -1,26 +1,13 @@
 import React from 'react';
-
+import NavBar from "./NavBar";
+import s from './Header.module.css';
 
 const Header = (props) => {
     return (
-        <header className="header">
-            <img src="https://clck.ru/XzD4Y" className="header__logo"></img>
-            <nav className="nav__header">
-                <div className="header__link">
-                    5 notes
-                </div>
-                <div className="header__link">
-                    10 notes
-                </div>
-                <div className="header__link">
-                    15 notes
-                </div>
-            </nav>
-            <div className="header__burger">
-                <span></span>
-            </div>
+        <header className={s.header}>
+            <img src="https://clck.ru/XzD4Y" className={s.header__logo}></img>
+            <NavBar/>
         </header>
     )}
-
 
 export default Header

@@ -1,0 +1,8 @@
+.note__item__wrapper {
+    border-radius: 20px;
+    padding: 17px;
+    max-height: 295px;
+}
+
+.color1 {background-color: #d8c3a5;}/*#555c6c*/
+.color2 {background-color: rgb(118, 179, 8);}/*#86786f*/

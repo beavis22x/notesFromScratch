@@ -10,14 +10,13 @@ import {
 
 let mapStateToProps = (state) => {
     return {
-        notes: state.itemReducer.notes, // В стэйт какого-то хера приходит itemReducer
-        editMode: state.itemReducer.notes.editMode
+        notes: state.itemReducer.notes,
     }
 }
 //
 let mapDispatchToProps = (dispatch) => {
     return {
-        deleteNote: (noteId) => {
+        onDeleteNote: (noteId) => {
             dispatch(deleteNoteAC(noteId))
         },
         updateEditNoteTitle: (noteId, title) => {

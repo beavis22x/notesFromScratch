@@ -1,27 +1,23 @@
 import React from 'react';
 import NoteItem from "../NoteItem/NoteItem";
-
-
+import s from './NoteList.module.css';
 
 const NotesList = (props) => {
 
-    const listItemCount = props.notes.map((n) => {
+    const listItems = props.notes.map((n) => {
         // const {id} = n;
-        return <NoteItem key={n.id}
-                         title={n.title}
-                         text={n.text}
-                         id={n.id}
+        return <NoteItem {...n}
                          notes={props.notes}
                          setNotes={props.setNotes}
                          updateEditNoteTitle={props.updateEditNoteTitle}
                          updateEditNoteText={props.updateEditNoteText}
-                         onDeleteNote={() => props.deleteNote(n.id)}/>
+                         onDeleteNote={() => props.onDeleteNote(n.id)}/>
     });
 
     return (
-        <main className="main">
-            <section className="note-items">
-                {listItemCount}
+        <main className={s.main}>
+            <section className={s.note__items}>
+                {listItems}
             </section>
         </main>
     )

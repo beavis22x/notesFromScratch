@@ -1,0 +1,45 @@
+.note__item {
+    position: relative;
+    border-radius: 20px;
+    max-height: 100%;
+}
+
+.inactive__note__title {
+    min-width: 250px;
+    height: 44px;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+    word-wrap: break-word;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 0;
+    padding: 10px;
+    text-align: left;
+    font-size: 1em;
+    font-weight: bold;
+    color: black;
+    text-transform: capitalize;
+}
+
+.inactive__note__title:hover {
+    overflow: auto;
+    white-space: normal;
+    height:auto;
+    max-height: 50px;
+}
+
+.inactive__note__text {
+    min-width: 250px;
+    min-height: 220px;
+    max-height: 220px;
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    overflow: auto;
+    border-radius: 0 0 20px 20px;
+    padding: .5rem .5rem .5rem .5rem;
+    font-size: 1em;
+    word-wrap: break-spaces;
+}
+
+.color3 {background-color: #8e8d8a;}/*#d5cfbf*/
+.color4 {background-color: #e85a4f;}/*#559b77*/

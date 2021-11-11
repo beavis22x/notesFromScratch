@@ -1,0 +1,15 @@
+footer {
+    margin-right: -3000px;
+    padding-right: 3000px;
+    margin-left: -3000px;
+    padding-left:3000px;
+    grid-area: footer;
+    text-align: center;
+    background-color: #8e8d8a;
+    height: 5em;
+    line-height: 5em;
+}
+
+.footer__content {
+
+}

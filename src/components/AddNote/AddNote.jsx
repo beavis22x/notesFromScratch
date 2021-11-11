@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import './AddNote.css'
+import s from './AddNote.module.css'
 import {updateTitleAC} from "../../redux/itemReducer";
 import * as axios from "axios";
 
@@ -61,32 +61,32 @@ const AddNote = (props) => {
 
 
     return (
-        <form className="note-form">
-            <div className="inputs-holder">
-                <div className="form-group">
+        <form className={s.note__form}>
+            <div className='inputs__holder'>
+                <div className='form__group'>
                     <input
-                        className="form-control app-input"
-                        id="title"
+                        className='add__input'
+                        id={s.title}
                         name="title"
                         placeholder="The post title"
                         onChange={handleTitleChange}
-                        value={props.updateFormFields.title}
-                    />
+                        value={props.updateFormFields.title}>
+                    </input>
                 </div>
                 <textarea
-                    className="form-control app-input"
-                    id="note-text"
+                    className='add__textarea'
+                    id={s.note__text}
                     rows="3"
                     placeholder="Create a note"
                     name="text"
                     onChange={handleNoteBodyChange}
-                    value={props.updateFormFields.text}
-                />
+                    value={props.updateFormFields.text}>
+                </textarea>
             </div>
             <div>
                 <div>
                     <button
-                        className="submit-button"
+                        className={s.submit__button}
                         id="stepper"
                         type="submit"
                         onClick={addNewNote}>
@@ -97,6 +97,5 @@ const AddNote = (props) => {
         </form>
     )
 }
-
 
 export default AddNote;

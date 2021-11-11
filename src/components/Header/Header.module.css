@@ -1,0 +1,19 @@
+.header img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    grid-column: 2 / 3;
+    border: 3px dashed #ece82d;
+}
+
+header {
+    margin-right: -3000px;
+    padding-right: 3000px;
+    margin-left: -3000px;
+    padding-left:3000px;
+    grid-area: header;
+    display: grid;
+    background-color: #8e8d8a;
+    grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+}
+
